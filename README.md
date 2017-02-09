@@ -1,40 +1,36 @@
-Read babel plugin handbook -> https://github.com/thejameskyle/babel-handbook/blob/master/translations/en/plugin-handbook.md
+# babel-plugin-yui-compressor-fix-reserved-keywords
 
-Try http://astexplorer.net/#/Pcw9baefXI for a visual understanding.
+Babel plugin to automatically rename/fixup variable names, accessors and property names, and statements that trigger YUI compressor bugs.
 
-# babel-plugin-boilerplate
-
-Add a description for the plugin here
+Note: it will not fixup stuff that is too new for YUI compressor to know about so you should add it late to your list of plugins.
 
 ## Example
 
 **In**
 
 ```js
-let tips = [
-  "Paste or drop some JavaScript here and explore the syntax tree created by chosen parser.",
-  "You can use all the cool new features from ES6 and even more. Enjoy!"
-];
-
-function printTips() {
-  tips.forEach((tip, i) => console.log(`Tip ${i}:` + tip));
-}
+var short = function char() {
+	debugger;
+	return {
+		default: 'yes'
+	}.default;
+}();
 ```
 
 **Out**
 
 ```js
-let spit = ["Paste or drop some JavaScript here and explore the syntax tree created by chosen parser.", "You can use all the cool new features from ES6 and even more. Enjoy!"];
-
-function spiTtnirp() {
-  spit.hcaErof((pit, i) => elosnoc.gol(`Tip ${ i }:` + pit));
-}
+var _short = function _char() {
+	return {
+		'default': 'yes'
+	}['default'];
+}();
 ```
 
 ## Installation
 
 ```sh
-$ npm install babel-plugin-boilerplate
+$ npm install babel-plugin-yui-compressor-fix-reserved-keywords
 ```
 
 ## Usage
@@ -45,20 +41,20 @@ $ npm install babel-plugin-boilerplate
 
 ```json
 {
-  "plugins": ["boilerplate"]
+  "plugins": ["yui-compressor-fix-reserved-keywords"]
 }
 ```
 
 ### Via CLI
 
 ```sh
-$ babel --plugins boilerplate script.js
+$ babel --plugins yui-compressor-fix-reserved-keywords script.js
 ```
 
 ### Via Node API
 
 ```javascript
 require("babel-core").transform("code", {
-  plugins: ["boilerplate"]
+  plugins: ["yui-compressor-fix-reserved-keywords"]
 });
 ```

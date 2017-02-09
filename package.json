@@ -1,8 +1,9 @@
 {
-  "version": "0.0.0",
-  "description": "Add a description for the plugin here",
-  "repository": "supreetpal/babel-plugin-boilerplate",
-  "author": "supreetpal <supreetpal@gmail.com>",
+  "version": "0.0.1",
+  "description": "Babel plugin to automatically rename/fixup variable names, accessors and property names, and statements that trigger YUI compressor bugs.",
+	"name": "babel-plugin-yui-compressor-fix-reserved-keywords",
+  "repository": "sabberworm/babel-plugin-yui-compressor-fix-reserved-keywords",
+  "author": "Raphael Schweikert <any@sabberworm.com>",
   "main": "lib/index.js",
   "devDependencies": {
     "babel-cli": "^6.18.0",
@@ -13,7 +14,6 @@
   "scripts": {
     "clean": "rm -rf lib",
     "build": "babel src -d lib",
-    "example": "npm run build && babel example/input.js -o example/output.js",
     "test": "mocha --compilers js:babel-register",
     "test:watch": "npm run test -- --watch",
     "prepublish": "npm run clean && npm run build"
@@ -21,7 +21,6 @@
   "keywords": [
     "babel",
     "plugin",
-    "boilerplate",
-    "babel-plugin"
+    "yui-compressor"
   ]
 }
