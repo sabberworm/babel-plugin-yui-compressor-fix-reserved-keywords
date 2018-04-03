@@ -2,7 +2,7 @@
 
 Babel plugin to automatically rename/fixup variable names, accessors and property names, and statements that trigger YUI compressor bugs.
 
-Note: it will not fixup stuff that is too new for YUI compressor to know about so you should add it late to your list of plugins. Also if Babel decides you need its helpers, it will add those imports and exports after any plugins are run, it seems is no possibility to fixup those via a plug-in and you’re SOL.
+Note: it will not fixup stuff that is too new for YUI compressor to know about so you should add it late to your list of plugins. Also if Babel decides you need its helpers, it will add those imports and exports after any plugins are run, it seems there is no way of fixing up those via a plug-in. If your project uses babel helpers, you need a second babel step which only runs this plug-in on the generated output.
 
 ## Example
 
